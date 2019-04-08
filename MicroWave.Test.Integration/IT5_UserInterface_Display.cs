@@ -12,6 +12,7 @@ using NUnit.Framework;
 
 namespace MicroWave.Test.Integration
 {
+    [TestFixture]
     public class IT5_UserInterface_Display
     {
         private Button _powerButton;

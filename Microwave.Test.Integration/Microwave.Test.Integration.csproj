@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14AB95D7-3ECA-4535-99EF-4F816BB911EA}</ProjectGuid>
+    <ProjectGuid>{A5453496-C2A2-4DC9-A5A6-5DF1253A3557}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microwave.Test.Integration</RootNamespace>
-    <AssemblyName>Microwave.Test.Integration</AssemblyName>
+    <RootNamespace>MicroWave.Test.Integration</RootNamespace>
+    <AssemblyName>MicroWave.Test.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -57,8 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="T1_UserInterface_Button.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IT4_Cookcontroller_Display.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IT2_Userinterface_Door.cs" />
+    <Compile Include="IT5_UserInterface_Display.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microwave.Application\Microwave.Application.csproj">
@@ -75,6 +78,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
