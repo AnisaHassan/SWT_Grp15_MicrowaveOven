@@ -48,15 +48,13 @@ namespace Microwave.Test.Integration
             [Test]
             public void Display_PressStart_ShowTime()
             {
-                //Act
+                
                 _powerButton.Press();
                 _timeButton.Press();
                 _startCancelButton.Press();
 
-                //Assert
+               
                 _output.Received().OutputLine($"Display shows: 01:00");
             }
-        }
-
-    
+           
 }
