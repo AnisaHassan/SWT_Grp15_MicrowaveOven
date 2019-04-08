@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microwave.Test.Unit", "Micr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microwave.Application", "Microwave.Application\Microwave.Application.csproj", "{403619F7-9DFE-4C73-BEEF-C1C405CEC63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroWave.Test.Integration", "MicroWave.Test.Integration\MicroWave.Test.Integration.csproj", "{A5453496-C2A2-4DC9-A5A6-5DF1253A3557}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroWave.Test.Integration", "MicroWave.Test.Integration\MicroWave.Test.Integration.csproj", "{14AB95D7-3ECA-4535-99EF-4F816BB911EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
