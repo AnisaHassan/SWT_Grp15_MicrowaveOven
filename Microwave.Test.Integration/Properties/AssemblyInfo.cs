@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MicroWave.Test.Integration")]
+[assembly: AssemblyTitle("Microwave.Test.Integration")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MicroWave.Test.Integration")]
+[assembly: AssemblyProduct("Microwave.Test.Integration")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a5453496-c2a2-4dc9-a5a6-5df1253a3557")]
+[assembly: Guid("14ab95d7-3eca-4535-99ef-4f816bb911ea")]
 
 // Version information for an assembly consists of the following four values:
 //
