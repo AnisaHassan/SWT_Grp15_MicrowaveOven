@@ -14,5 +14,6 @@ namespace MicroWave.Test.Integration
     [TestFixture]
     public class IT3_CookController
     {
+
     }
 }
