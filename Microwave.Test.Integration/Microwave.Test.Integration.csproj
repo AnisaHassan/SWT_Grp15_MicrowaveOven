@@ -60,6 +60,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IT3_CookController.cs" />
     <Compile Include="IT4_Cookcontroller_Display.cs" />
+    <Compile Include="IT6_Light.cs" />
+    <Compile Include="IT7_Timer.cs" />
+    <Compile Include="IT8_Powertube.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
