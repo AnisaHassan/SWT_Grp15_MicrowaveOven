@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
-using NSubstitute;
 using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
+using NSubstitute;
+using NUnit.Framework;  
 
 namespace Microwave.Test.Integration
 {
-    [TestFixture]
-    class IT4_Cookcontroller_Display
+    class IT6_Light
     {
+
         private Button _powerButton;
         private Button _timeButton;
         private Button _startCancelButton;
         private Door _door;
-        private ILight _light;
-        private Display _uut;
+        private Light _uut;
+        private Display _display;
         private CookController _cookController;
         private UserInterface _userInterface;
         private ITimer _timer;
@@ -37,25 +37,16 @@ namespace Microwave.Test.Integration
             _timer = Substitute.For<ITimer>();
             _powerTube = Substitute.For<IPowerTube>();
             _door = new Door();
-            _light = Substitute.For<ILight>();
             _output = Substitute.For<IOutput>();
-            _uut = new Display(_output);
+            _uut = new Light(_output);
+            _display = new Display(_output);
 
-            _cookController = new CookController(_timer, _uut, _powerTube);
-            _userInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _uut, _light,
+            _cookController = new CookController(_timer, _display, _powerTube);
+            _userInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _uut,
                 _cookController);
-        }
 
-        [Test]
-        public void Display_PressStart_ShowTime()
-        {
+            _cookController.UI = _userInterface;
 
-            _powerButton.Press();
-            _timeButton.Press();
-            _startCancelButton.Press();
-
-
-            _output.Received().OutputLine($"Display shows: 01:00");
         }
     }
 }
