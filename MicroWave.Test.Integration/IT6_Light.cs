@@ -48,5 +48,66 @@ namespace Microwave.Test.Integration
             _cookController.UI = _userInterface;
 
         }
+
+
+        [Test]
+        public void Light_OpenDoor_LightOn()
+        {
+           
+            _door.Open();
+
+      
+            _output.Received().OutputLine("Light is turned on");
+        }
+
+        [Test]
+        public void Light_PressStart_LightOn()
+        {
+        
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+
+           
+            _output.Received().OutputLine("Light is turned on");
+        }
+
+        [Test]
+        public void Light_CloseDoor_LightOff()
+        {
+            
+            _door.Open();
+            _door.Close();
+
+           
+            _output.Received().OutputLine("Light is turned off");
+        }
+
+        [Test]
+        public void Light_CookingDone_LightOff()
+        {
+            
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+            _timer.Expired += Raise.EventWith(this, EventArgs.Empty);
+
+           
+            _output.Received().OutputLine("Light is turned off");
+        }
+
+        [Test]
+        public void Light_CookingPressCancel_LightOff()
+        {
+          
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+            _startCancelButton.Press();
+
+            _output.Received().OutputLine("Light is turned off");
+        }
+
     }
 }
+
