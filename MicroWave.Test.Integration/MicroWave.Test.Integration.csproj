@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IT1_UserInterface_button.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="IT3_CookController.cs" />
     <Compile Include="IT4_Cookcontroller_Display.cs" />
     <Compile Include="IT6_Light.cs" />
