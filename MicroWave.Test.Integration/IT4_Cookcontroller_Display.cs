@@ -53,8 +53,7 @@ namespace Microwave.Test.Integration
             _powerButton.Press();
             _timeButton.Press();
             _startCancelButton.Press();
-
-
+            
             _output.Received().OutputLine($"Display shows: 01:00");
         }
     }
