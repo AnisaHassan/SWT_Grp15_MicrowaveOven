@@ -49,7 +49,17 @@ namespace MicroWave.Test.Integration
             _cookController.UI = _userInterface;
         }
 
-      
+        [TestCase(7, 350)]
+        [TestCase(9, 450)]
+        [TestCase(3, 150)]
+        public void TestDisplaysCorrectPower(int times, int power)
+        {
+            for (int i = 0; i < times; ++i)
+                _powerButton.Press();
+
+            _output.Received(1).OutputLine($"Display shows: {power} W");
+        }
+
         public void Display_PressPowerButton_ShowPower()
         {
 
