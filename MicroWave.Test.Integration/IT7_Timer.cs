@@ -8,5 +8,6 @@ namespace Microwave.Test.Integration
 {
     class IT7_Timer
     {
+
     }
 }
