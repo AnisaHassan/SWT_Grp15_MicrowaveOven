@@ -10,7 +10,7 @@ using NSubstitute;
 using NUnit.Framework;
 namespace Microwave.Test.Integration
 {
-    class IT9_Light_output
+    class IT1_Light_output
     {
         private ILight _uut_light;
 

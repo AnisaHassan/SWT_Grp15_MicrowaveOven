@@ -11,7 +11,7 @@ using NUnit.Framework;
 
 namespace Microwave.Test.Integration
 {
-    class IT10_display_output
+    class IT3_display_output
     {
         
         private Display uut;
