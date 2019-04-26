@@ -17,7 +17,7 @@ namespace Microwave.Test.Integration
         [SetUp]
         public void Setup()
         {
-            IOutput output = new Output();
+            Output output = new Output();
             _uut_light = new Light(output);
         }
 

@@ -15,7 +15,7 @@ namespace Microwave.Test.Integration
     {
         
         private Display uut;
-        private IOutput output;
+        private Output output;
 
         [SetUp]
         public void Setup()
