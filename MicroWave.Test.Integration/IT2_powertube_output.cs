@@ -12,8 +12,7 @@ using MicrowaveOvenClasses.Interfaces;
 namespace Microwave.Test.Integration
 {
     class IT2_powertube_output
-    {
-        public class IT03_PowerOut
+    
         {
             private PowerTube uut;
             private Output output;
@@ -49,4 +48,3 @@ namespace Microwave.Test.Integration
         }
 
     }
-}
