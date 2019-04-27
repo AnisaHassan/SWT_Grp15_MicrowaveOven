@@ -65,7 +65,7 @@
     <Compile Include="IT4_Cookcontroller_Display.cs" />
     <Compile Include="IT5_UserInterface_Display.cs" />
     <Compile Include="IT6_Light.cs" />
-    <Compile Include="IT7_Timer.cs" />
+    <Compile Include="IT4_Timer.cs" />
     <Compile Include="IT8_Powertube.cs" />
     <Compile Include="IT1_Light_output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
