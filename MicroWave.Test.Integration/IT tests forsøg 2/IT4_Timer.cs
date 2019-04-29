@@ -13,8 +13,9 @@ namespace Microwave.Test.Integration
     [TestFixture]
     class IT4_Timer
     {
-        private Timer _uut;
+        private ITimer _uut;
         private ICookController _cookController;
+
         [SetUp]
         public void Setup()
         {
@@ -22,4 +23,5 @@ namespace Microwave.Test.Integration
             _uut = new Timer();
 
         }
+    }
 }

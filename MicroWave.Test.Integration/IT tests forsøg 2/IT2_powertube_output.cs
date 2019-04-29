@@ -14,8 +14,8 @@ namespace Microwave.Test.Integration
     class IT2_powertube_output
     
         {
-            private PowerTube uut;
-            private Output output;
+            private IPowerTube uut;
+            private IOutput output;
 
             [SetUp]
             public void Setup()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Microwave.Test.Integration
 {
-    class IT5_CookController
+    class IT3_UserInterface
     {
     }
 }
