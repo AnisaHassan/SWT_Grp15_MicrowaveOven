@@ -54,8 +54,8 @@ namespace Microwave.Test.Integration
                 _door = new Door();
                 _light = new Light(_output);
                 _powertube = new PowerTube(_output);
-                _cook = new CookController(_timer, _display, _powertube);
-                _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cook);
+                _cooker = new CookController(_timer, _display, _powertube);
+                _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cooker);
 
             }
 
