@@ -40,6 +40,9 @@ namespace MicroWave.Test.Integration
             _light = Substitute.For<ILight>();
             _display = Substitute.For<IDisplay>();
             _timer = Substitute.For<ITimer>();
+            _powerTube = Substitute.For<IPowerTube>();
+
+           
 
             _uut = new CookController(_timer, _display, _powerTube);
             _userInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light, _uut);
