@@ -13,97 +13,52 @@ namespace Microwave.Test.Integration
 {
     class IT4_Door_UserInterface
     {
-        private Button _powerButton;
-        private Button _timeButton;
-        private Button _startCancelButton;
+        private IUserInterface _ui;
         private IDoor _door;
+        private IButton _startButton;
+        private IButton _timerButton;
+        private IButton _powerButton;
         private ILight _light;
+        private IOutput _output;
+        private CookController _cook;
         private IDisplay _display;
-        private ICookController _cookController;
-        private UserInterface _uut;
+        private ITimer _timer;
+        private IPowerTube _powerTube;
+
 
         [SetUp]
         public void SetUp()
         {
-            _powerButton = new Button();
-            _timeButton = new Button();
-            _startCancelButton = new Button();
+            _powerButton = Substitute.For<IButton>();
+            _startButton = Substitute.For<IButton>();
+            _timerButton = Substitute.For<IButton>();
 
             _door = new Door();
-            _light = Substitute.For<ILight>();
-            _display = Substitute.For<IDisplay>();
-            _cookController = Substitute.For<ICookController>();
-
-            _uut = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light,
-                _cookController);
+            _timer = new Timer();
+            _output = Substitute.For<IOutput>();
+            _powerTube = new PowerTube(_output);
+            _display = new Display(_output);
+            _cook = new CookController(_timer, _display, _powerTube);
+            _light = new Light(_output);
+            _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light,
+                _cook);
+            _cook.UI = _ui;
         }
 
         [Test]
-        public void UserInterface_DoorOpen_LightOn()
+        public void Open_DoorOpen_LightOn()
         {
-
             _door.Open();
-
-
-            _light.Received().TurnOn();
+            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains("on")));
         }
 
         [Test]
-        public void UserInterface_DoorClose_LightOff()
+        public void Close_doorClosed_LightOff()
         {
-
             _door.Open();
             _door.Close();
-
-
-            _light.Received().TurnOff();
-
+            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains("off")));
         }
 
-        [Test]
-        public void UserInterface_DoorOpenPowersetup_LightOn()
-        {
-
-            _powerButton.Press();
-            _door.Open();
-
-
-            _light.Received().TurnOn();
-        }
-        [Test]
-        public void UserInterface_DoorOpenPowersetup_DisplayClear()
-        {
-
-            _powerButton.Press();
-            _door.Open();
-
-
-            _display.Received().Clear();
-        }
-        [Test]
-        public void UserInterface_DoorOpenTimesetup_DisplayClear()
-        {
-
-            _powerButton.Press();
-            _timeButton.Press();
-            _door.Open();
-
-
-            _display.Received().Clear();
-        }
-
-        [Test]
-        public void UserInterface_DoorOpenCooking_PowertubeOff()
-        {
-
-            _powerButton.Press();
-            _timeButton.Press();
-            _startCancelButton.Press();
-            _door.Open();
-
-
-            _cookController.Received().Stop();
-
-        }
     }
 }
