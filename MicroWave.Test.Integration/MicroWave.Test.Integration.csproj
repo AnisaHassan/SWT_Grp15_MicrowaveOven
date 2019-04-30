@@ -57,17 +57,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IT2_powertube_output.cs" />
-    <Compile Include="IT3_display_output.cs" />
-    <Compile Include="IT1_UserInterface_button.cs" />
-    <Compile Include="IT2_Userinterface_Door.cs" />
-    <Compile Include="IT3_CookController.cs" />
-    <Compile Include="IT4_Cookcontroller_Display.cs" />
-    <Compile Include="IT5_UserInterface_Display.cs" />
-    <Compile Include="IT6_Light.cs" />
-    <Compile Include="IT7_Timer.cs" />
-    <Compile Include="IT8_Powertube.cs" />
-    <Compile Include="IT1_Light_output.cs" />
+    <Compile Include="IT tests forsøg 2\IT2_powertube_output.cs" />
+    <Compile Include="IT tests forsøg 2\IT3_display_output.cs" />
+    <Compile Include="Gamle IT tests\IT1_UserInterface_button.cs" />
+    <Compile Include="Gamle IT tests\IT2_Userinterface_Door.cs" />
+    <Compile Include="Gamle IT tests\IT3_CookController.cs" />
+    <Compile Include="Gamle IT tests\IT4_Cookcontroller_Display.cs" />
+    <Compile Include="IT tests forsøg 2\IT5_CookController.cs" />
+    <Compile Include="Gamle IT tests\IT5_UserInterface_Display.cs" />
+    <Compile Include="Gamle IT tests\IT6_Light.cs" />
+    <Compile Include="IT tests forsøg 2\IT4_Timer.cs" />
+    <Compile Include="IT tests forsøg 2\IT6_Userinterface.cs" />
+    <Compile Include="Gamle IT tests\IT8_Powertube.cs" />
+    <Compile Include="IT tests forsøg 2\IT1_Light_output.cs" />
+    <Compile Include="IT tests forsøg 2\IT7_Button.cs" />
+    <Compile Include="IT tests forsøg 2\IT8_Door.cs" />
+    <Compile Include="IT1_Cookcontroller_Timer.cs" />
+    <Compile Include="IT2_CookController.cs" />
+    <Compile Include="IT3_UserInterface.cs" />
+    <Compile Include="IT4_Door_UserInterface.cs" />
+    <Compile Include="IT5_Button_UserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Microwave.Test.Integration
 {
-    class IT7_Timer
+    class IT3_UserInterface
     {
-
     }
 }
