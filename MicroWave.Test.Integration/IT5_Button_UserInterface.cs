@@ -30,7 +30,7 @@ namespace Microwave.Test.Integration
             private IDoor _door;
             private ILight _light;
             private IOutput _output;
-            private ICookController _cook;
+            private ICookController _cooker;
             private IDisplay _display;
         
   
@@ -54,7 +54,7 @@ namespace Microwave.Test.Integration
                 _door = new Door();
                 _light = new Light(_output);
                 _powertube = new PowerTube(_output);
-                _cook = new CookController(_timer, _display, _powertube);
+                _cooker = new CookController(_timer, _display, _powertube);
                 _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cooker);
 
             }

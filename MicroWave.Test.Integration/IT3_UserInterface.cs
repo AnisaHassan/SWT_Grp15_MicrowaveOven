@@ -104,10 +104,9 @@ namespace Microwave.Test.Integration
             _fakepowerButton.Press();
             _faketimeButton.Press();
             _fakestartCancelButton.Press();
-            _fakestartCancelButton.Press();
+            
 
-
-            _fakeoutput.Received().OutputLine($"Display cleared");
+            _fakeoutput.Received(1).OutputLine($"Display cleared");
 
         }
     }
