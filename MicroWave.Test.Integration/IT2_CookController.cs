@@ -42,33 +42,47 @@ namespace Microwave.Test.Integration
 
 
         [Test]
-        public void Cookcontroller_StartCooking_()
+        public void Cookcontroller_Display_Showtime()
         {
             //Act
             _uut.StartCooking(500, 60);
             Thread.Sleep(1000);
 
+            //Assert
             _fakeoutput.Received().OutputLine($"Display shows: 00:59");
 
         }
 
-        [Test]
-        public void Powetube_over100()
-        {
-            _uut.StartCooking(150, 60);
-
-            _powerTube.Received().TurnOn(150);
-
-        }
+        //Vi har her fundet at powerTube ikke kan tage værdier over 100, da power skal være mellem 1-100. 
+        //Vi har i klassen PowerTube lavet det om, så 100 svarer til 700W
 
         //[Test]
-        //public void CookController_StopCooking_ShowsDisplayCleared()
+        //public void Cookcontroller_Powetube_turnon_over_100()
         //{
-        //    _uut.Stop();
-        //    Thread.Sleep(1100);
-        //    _fakeoutput.Received().OutputLine("Display cleared");
+        //    _uut.StartCooking(150, 60);
 
+        //    _fakeoutput.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("150")));
         //}
+
+        [Test]
+        public void Cookcontroller_Powetube_turnon_Under_100()
+        {
+            _uut.StartCooking(50, 60);
+
+            _fakeoutput.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("7 %")));
+        }
+
+
+        [Test]
+        public void CookController_StopCooking_ShowsDisplayCleared()
+        {
+            _uut.StartCooking(50, 60);
+
+            _uut.Stop();
+            Thread.Sleep(1100);
+            _fakeoutput.Received().OutputLine("PowerTube turned off");
+
+        }
 
     }
 }
