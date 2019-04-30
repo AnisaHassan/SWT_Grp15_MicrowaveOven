@@ -44,6 +44,7 @@ namespace Microwave.Test.Integration
         public void Cookcontroller_StartCooking_()
         {
             //Act
+            _uut.StartCooking(50,2);
             
             //Assert
             _powerTube.Received().TurnOn(50);
