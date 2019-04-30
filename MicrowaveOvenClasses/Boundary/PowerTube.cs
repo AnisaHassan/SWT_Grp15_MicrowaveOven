@@ -19,7 +19,7 @@ namespace MicrowaveOvenClasses.Boundary
             double powerpercent = Math.Round((power / 700.0) * 100); // lavet om til procent, da vi ikke kan have power højere end 700.
             if (powerpercent < 1 || 100 < powerpercent)
             {
-                throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 700 W (incl.)");
+                throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 100 % (incl.)");
             }
 
             if (IsOn)
