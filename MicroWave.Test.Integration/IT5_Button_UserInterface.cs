@@ -55,34 +55,30 @@ namespace Microwave.Test.Integration
                 _light = new Light(_output);
                 _powertube = new PowerTube(_output);
                 _cook = new CookController(_timer, _display, _powertube);
-                _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cooker);
+                _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cook);
 
             }
 
-            [Test]
-            public void UserInterface_Button_WasPowerPressed()
+            [TestCase(1, 50)]
+            [TestCase(2, 100)]
+            [TestCase(3, 150)]
+            [TestCase(7, 350)]
+            [TestCase(10, 500)]
+            [TestCase(12, 600)]
+            [TestCase(14, 700)]
+            public void TestDisplaysCorrectPower(int times, int power)
             {
-                _powerButton.Press();
-                _output.Received().OutputLine("Display shows: 50 W");
-
-            }
-            [Test]
-            public void UserInterface_Button_WasPowerPressed_10times()
-            {
-                for (int i = 0; i < 10; i++)
-                {
+                for (int i = 0; i < times; ++i)
                     _powerButton.Press();
 
-                }
-
-                _output.Received().OutputLine("Display shows: 500 W");
+                _output.Received(1).OutputLine($"Display shows: {power} W");
             }
 
-
-            [Test]
+            
+            
             public void UserInterface_Button_WasPowerPressed_100times()
             {
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     _powerButton.Press();
 
@@ -99,6 +95,9 @@ namespace Microwave.Test.Integration
                 _output.Received().OutputLine("Display shows: 01:00");
 
             }
+
+            
+          
         }
     }
 }
