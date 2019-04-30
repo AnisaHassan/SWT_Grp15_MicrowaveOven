@@ -14,152 +14,92 @@ namespace Microwave.Test.Integration
     class IT5_Button_UserInterface
     {
 
-        public class IT1_UserInterface_Button
+        public class IT5_UserInterface_Button
         {
-            private UserInterface _uut;
-            private Button _powerButton;
-            private Button _startCancelButton;
-            private Button _timeButton;
+
+
+            private IUserInterface _ui;
+
+
+            private ITimer _timer;
+            private IPowerTube _powertube;
+
+            private IButton _powerButton;
+            private IButton _timerButton;
+            private IButton _startButton;
             private IDoor _door;
             private ILight _light;
+            private IOutput _output;
+            private ICookController _cook;
             private IDisplay _display;
-            private ICookController _cookController;
+        
+  
 
 
-            [SetUp]
+        [SetUp]
             public void SetUp()
             {
+
+                _timer = Substitute.For<ITimer>();
+
+
                 _powerButton = new Button();
-                _timeButton = new Button();
-                _startCancelButton = new Button();
+                _startButton = new Button();
+                _timerButton = new Button();
+               
+                _output = Substitute.For<IOutput>();
 
-                _door = Substitute.For<IDoor>();
-                _light = Substitute.For<ILight>();
-                _display = Substitute.For<IDisplay>();
-                _cookController = Substitute.For<ICookController>();
+                _display = new Display(_output);
 
-                _uut = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light,
-                    _cookController);
+                _door = new Door();
+                _light = new Light(_output);
+                _powertube = new PowerTube(_output);
+                _cook = new CookController(_timer, _display, _powertube);
+                _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light, _cooker);
+
             }
-
 
             [Test]
-            public void OnPowerPressed_starts_powerLevel_50()
+            public void UserInterface_Button_WasPowerPressed()
             {
                 _powerButton.Press();
-                _display.Received().ShowPower(50);
+                _output.Received().OutputLine("Display shows: 50 W");
 
             }
-
-            [TestCase(1, 50)]
-            [TestCase(2, 100)]
-            [TestCase(3, 150)]
-            [TestCase(4, 200)]
-            [TestCase(5, 250)]
-            [TestCase(10, 500)]
-            [TestCase(14, 700)]
-            [TestCase(16, 50)]
-            public void UserInterface_OnPowerPressed_PowerIsCorrect(int timespressed, int expected)
+            [Test]
+            public void UserInterface_Button_WasPowerPressed_10times()
             {
-                //Act
-                //Each time the powerbutton is pressed from 0 times to 16 times, _powerButton shall be pressed.
-                for (int i = 0; i < timespressed; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     _powerButton.Press();
+
                 }
 
-                //Assert
-                _display.Received().ShowPower(expected);
+                _output.Received().OutputLine("Display shows: 500 W");
             }
+
+
             [Test]
-            public void OnTimePressed_starts_time_1()
+            public void UserInterface_Button_WasPowerPressed_100times()
             {
-                //act
-                _powerButton.Press();
-                _timeButton.Press();
-                //Assert
-                _display.Received().ShowTime(1, 0);
-            }
-
-
-            [TestCase(1, 1)]
-            [TestCase(2, 2)]
-            [TestCase(50, 50)]
-            public void UserInterface_OnTimePressed_TimeIsCorrect(int timespressed, int expected)
-            {
-                //Act
-                _powerButton.Press();
-                for (int i = 0; i < timespressed; i++)
+                for (int i = 0; i < 7; i++)
                 {
-                    _timeButton.Press();
+                    _powerButton.Press();
+
                 }
 
-                //Assert
-                _display.Received().ShowTime(expected, 0);
+                _output.Received().OutputLine("Display shows: 50 W");
             }
 
             [Test]
-            public void OnStartCancelPressed_LightOff()
+            public void UserInterface_Button_WasTimePressed()
             {
-                //Act
                 _powerButton.Press();
-                _startCancelButton.Press();
+                _timerButton.Press();
+                _output.Received().OutputLine("Display shows: 01:00");
 
-                //Assert
-                _light.Received().TurnOff();
-            }
-
-
-            [Test]
-            public void OnStartCancelPressed_DisplayClear()
-            {
-                //Act
-                _powerButton.Press();
-                _startCancelButton.Press();
-
-                //Assert
-                _display.Received().Clear();
-            }
-
-            [Test]
-            public void OnStartCancelPressed_LightOn()
-            {
-                //Act
-                _powerButton.Press();
-                _timeButton.Press();
-                _startCancelButton.Press();
-
-                //Assert
-                _light.Received().TurnOn();
-            }
-
-            [Test]
-            public void OnStartCancelPressed_StartCooking()
-            {
-                //Act
-                _powerButton.Press();
-                _timeButton.Press();
-                _startCancelButton.Press();
-
-                //Assert
-                _cookController.Received().StartCooking(50, 60);
-            }
-
-            [Test]
-            public void OnStartCancelPressed_StopCooking()
-            {
-                //Act
-                _powerButton.Press();
-                _timeButton.Press();
-                //start
-                _startCancelButton.Press();
-                //stop
-                _startCancelButton.Press();
-
-                //Assert
-                _cookController.Received().Stop();
             }
         }
     }
 }
-
+      

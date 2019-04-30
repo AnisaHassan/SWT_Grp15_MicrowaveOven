@@ -42,7 +42,7 @@ namespace Microwave.Test.Integration
             _light = new Light(_output);
             _ui = new UserInterface(_powerButton, _timerButton, _startButton, _door, _display, _light,
                 _cook);
-            _cook.UI = _ui;
+            
         }
 
         [Test]
