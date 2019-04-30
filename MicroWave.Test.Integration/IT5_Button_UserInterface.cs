@@ -30,7 +30,7 @@ namespace Microwave.Test.Integration
             private IDoor _door;
             private ILight _light;
             private IOutput _output;
-            private ICookController _cook;
+            private ICookController _cooker;
             private IDisplay _display;
         
   
