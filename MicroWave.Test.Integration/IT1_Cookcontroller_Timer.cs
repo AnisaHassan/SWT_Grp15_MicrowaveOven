@@ -48,12 +48,5 @@ namespace Microwave.Test.Integration
             _fakedisplay.Received().ShowTime(0,11);
 
         }
-
-
-        [Test]
-        public void Cookcontroller_StopCooking_()
-        {
-            
-        }
     }
 }
