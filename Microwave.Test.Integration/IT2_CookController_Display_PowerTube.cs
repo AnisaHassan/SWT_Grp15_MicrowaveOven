@@ -15,7 +15,7 @@ using Timer = MicrowaveOvenClasses.Boundary.Timer;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    class IT2_CookController
+    class IT2_CookController_Display_PowerTube
     {
         //Mangler denne klasse ikke flere tests?
 
@@ -71,10 +71,10 @@ namespace Microwave.Test.Integration
 
             _fakeoutput.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("7 %")));
         }
-
+     
 
         [Test]
-        public void CookController_StopCooking_ShowsDisplayCleared()
+        public void CookController_StopCooking_TurnOff()
         {
             _uut.StartCooking(50, 60);
 
@@ -83,6 +83,9 @@ namespace Microwave.Test.Integration
             _fakeoutput.Received().OutputLine("PowerTube turned off");
 
         }
+
+
+      
 
     }
 }

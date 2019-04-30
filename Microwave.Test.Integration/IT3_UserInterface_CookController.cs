@@ -13,7 +13,7 @@ using NUnit.Framework.Internal;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-   public class IT3_UserInterface
+   public class IT3_UserInterface_CookController
     {
         private IButton _powerButton;
         private IButton _timeButton;
@@ -82,16 +82,7 @@ namespace Microwave.Test.Integration
 
             _fakeoutput.Received().OutputLine($"Display shows: 01:00");
         }
-        //[Test]
-        //public void Display_TurnOn()
-        //{
-        //    _powerButton.Press();
-        //    _timeButton.Press();
-        //    _startCancelButton.Press();
-        //    _fakeoutput.Received().OutputLine(Arg.Is<string>(str => str.Contains("on")));
 
-
-        //}
         //[Test]
         //public void Display_CookingDone_ClearDisplay()
         //{
@@ -99,12 +90,9 @@ namespace Microwave.Test.Integration
         //    _powerButton.Press();
         //    _timeButton.Press();
         //    _startCancelButton.Press();
-        //    _uut.CookingIsDone();
-        //    //_timer.Expired += Raise.EventWith(this, EventArgs.Empty);
-        //    _fakeoutput.Received().OutputLine(Arg.Is<string>(str => str.Contains("off")));
+        //    _door.Open();
 
-
-        //   // _fakeoutput.Received().OutputLine($"Display cleared");
+        //   _fakeoutput.Received().OutputLine(Arg.Is<string>(str => str.Contains("off")));
 
         //}
 
@@ -115,12 +103,9 @@ namespace Microwave.Test.Integration
         //    _powerButton.Press();
         //    _timeButton.Press();
         //    _startCancelButton.Press();
-        //    _startCancelButton.Press();
+            
 
-
-
-
-        //   // _fakeoutput.Received().OutputLine($"Display cleared");
+        //    _fakeoutput.Received(1).OutputLine($"Display cleared");
 
         //}
     }
